@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mk体育 · 知识库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafb;
+            color: #1f2937;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* ---------- 标题层级 ---------- */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            padding-top: 0.8rem;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.6rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 2rem 0 0.8rem 0;
+            color: #1f2937;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+            bottom: 0.2rem;
+            width: 3px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.5rem 0;
+            color: #374151;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+            color: #374151;
+        }
+
+        /* ---------- 卡片 · 目录感 ---------- */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.8rem 0;
+        }
+
+        .card-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 1.2rem 1.4rem;
+            transition: box-shadow 0.2s ease, border-color 0.2s;
+        }
+
+        .card-item:hover {
+            border-color: #c4b5fd;
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-item span {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- 说明区 / 提示区 ---------- */
+        .note-box {
+            background: #ffffff;
+            border-left: 4px solid #6366f1;
+            padding: 1rem 1.3rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .tip-box {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1rem 1.4rem;
+            margin: 1.5rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .tip-box p {
+            margin-bottom: 0.4rem;
+        }
+
+        .related-links {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.2rem 1.4rem;
+            margin: 1.8rem 0;
+        }
+
+        .related-links a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid #bfdbfe;
+            transition: border-color 0.15s;
+        }
+
+        .related-links a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .related-links ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.6rem;
+        }
+
+        .related-links li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed #f1f5f9;
+        }
+
+        .related-links li:last-child {
+            border-bottom: none;
+        }
+
+        /* ---------- 内联链接 ---------- */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .inline-link-example {
+            background: #f8fafc;
+            padding: 0.2rem 0.1rem;
+        }
+
+        /* ---------- 底部 ---------- */
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .card-item {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <h1>mk体育 · 主题库</h1>
+
+    <p style="font-size: 0.95rem; color: #4b5563; margin-bottom: 1.8rem;">
+        围绕「mk体育」汇集知识节点、常见疑问与背景信息。当前页面作为小型入口，梳理主要方向。
+    </p>
+
+    <!-- 介绍区 / 说明区 -->
+    <div class="note-box">
+        <p style="margin-bottom: 0.2rem;"><strong>说明</strong></p>
+        <p style="font-size: 0.95rem;">
+            mk体育并非单一概念，而是一组与运动、数据、社区相关的主题线索。
+            从赛事记录到训练方法，从装备选择到运动康复，不同分支各有侧重。
+            这里尝试把零散知识点整理为可检索的目录形式。
+        </p>
+    </div>
+
+    <!-- 目录感布局：卡片 -->
+    <h2>主题分支</h2>
+    <div class="card-grid">
+        <div class="card-item">
+            <strong>运动数据与统计</strong>
+            <span>涵盖比赛结果、选手表现、赛季趋势等结构化信息。常用作分析基础。</span>
+        </div>
+        <div class="card-item">
+            <strong>训练与体能</strong>
+            <span>力量、耐力、恢复周期、周期化训练思路。侧重实证方法与常见误区。</span>
+        </div>
+        <div class="card-item">
+            <strong>装备与场地</strong>
+            <span>球类、鞋履、防护用具、场地规格。围绕适用场景与技术迭代。</span>
+        </div>
+        <div class="card-item">
+            <strong>运动文化</strong>
+            <span>赛事传统、社群习惯、术语演变。偏向背景与人文视角。</span>
+        </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="tip-box">
+        <p style="font-weight: 500; font-size: 1rem; margin-bottom: 0.3rem;">提示</p>
+        <p>部分内容仍在整理中，建议先通过 <a href="https://mkwebhook.com.cn">mk体育</a> 浏览当前可用的模块。
+        页面结构会随资料更新调整，目录感设计有助于快速定位感兴趣的方向。</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #475569;">
+            若需要更具体的运动项目或数据维度，可以留意后续新增的分支卡片。
+        </p>
+    </div>
+
+    <!-- 相关信息区 -->
+    <h2>相关信息</h2>
+    <div class="related-links">
+        <p style="font-size: 0.9rem; color: #4b5563; margin-bottom: 0.6rem;">以下条目与 mk体育 主题存在交叉，可作为延伸参考：</p>
+        <ul>
+            <li>运动生物力学基础 —— 动作效率与损伤预防</li>
+            <li>心率区间与有氧阈值训练（常见于耐力项目）</li>
+            <li>赛季周期与恢复策略（团体项目与个人项目差异）</li>
+            <li>运动营养：宏量营养素时机与补剂效用</li>
+            <li>数据可视化在赛事分析中的应用（雷达图、热力图等）</li>
+        </ul>
+    </div>
+
+    <!-- 嵌入链接到句子中，符合要求 -->
+    <p style="margin-top: 2rem;">
+        如果你对某一分支感兴趣，可以从 <a href="https://mkwebhook.com.cn">mk体育</a> 开始浏览，
+        逐步深入到具体条目。当前页面侧重索引，后续会加入更多注释和引用。
+    </p>
+
+    <p>
+        考虑到运动主题的跨度，部分内容会同时涉及生理学和设备工程。
+        索引目录会定期审阅，确保信息相对可靠。
+    </p>
+
+    <!-- FAQ 摘要 (克制，不夸张) -->
+    <h2>常见疑问 · 摘要</h2>
+    <div style="margin: 0.8rem 0 1.5rem 0; display: flex; flex-direction: column; gap: 0.8rem;">
+        <div style="background: white; border-radius: 8px; padding: 0.8rem 1rem; border: 1px solid #f1f5f9;">
+            <strong style="font-weight: 500; font-size: 0.95rem;">mk体育 与一般运动资讯站有何不同？</strong>
+            <p style="font-size: 0.9rem; margin-top: 0.3rem; color: #475569;">更注重结构化知识与主题聚合，而非实时新闻。页面倾向于目录式梳理，方便按需查找。</p>
+        </div>
+        <div style="background: white; border-radius: 8px; padding: 0.8rem 1rem; border: 1px solid #f1f5f9;">
+            <strong style="font-weight: 500; font-size: 0.95rem;">内容来源是什么？</strong>
+            <p style="font-size: 0.9rem; margin-top: 0.3rem; color: #475569;">基于公开资料、运动科学文献及社区讨论整理。不替代专业医疗或训练建议。</p>
+        </div>
+        <div style="background: white; border-radius: 8px; padding: 0.8rem 1rem; border: 1px solid #f1f5f9;">
+            <strong style="font-weight: 500; font-size: 0.95rem;">是否会涵盖所有运动项目？</strong>
+            <p style="font-size: 0.9rem; margin-top: 0.3rem; color: #475569;">优先覆盖参与度较高的项目，以及跨项目通用的训练/数据方法。个别冷门项目可能条目较少。</p>
+        </div>
+    </div>
+
+    <!-- 结尾 -->
+    <div class="footer-note">
+        mk体育 · 主题知识库 &mdash; 持续构建中
+    </div>
+
+</div>
+</body>
+</html>
